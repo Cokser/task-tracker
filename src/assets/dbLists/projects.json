@@ -1,0 +1,7 @@
+{
+  "projects": [
+    { "projectName": "firstApp", "creator": 1, "tasks": [], "developers": [] },
+    { "projectName": "secondApp", "creator": 1, "tasks": [], "developers": [] },
+    { "projectName": "thirdApp", "creator": 1, "tasks": [], "developers": [] }
+  ]
+}

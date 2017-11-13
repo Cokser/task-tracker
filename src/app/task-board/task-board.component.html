@@ -1,0 +1,41 @@
+<div *ngIf="tasks?.length > 0;else noTasks">
+  <table class="app-table">
+    <tr class="table-header">
+      <td class="table-header-item">title</td>
+      <td class="table-header-item">project</td>
+      <td class="table-header-item">id</td>
+      <td class="table-header-item">status</td>
+      <td class="table-header-item">creator</td>
+      <td class="table-header-item">created At</td>
+      <td class="table-header-item">Active</td>
+      <td class="table-header-item">options</td>
+    </tr>
+    <tr class="table-items" *ngFor="let task of tasks">
+      <td class="table-item">{{task['title']}}</td>
+      <td class="table-item">{{task['project']}}</td>
+      <td class="table-item">{{task['id']}}</td>
+      <td class="table-item">{{task['status']}}</td>
+      <td class="table-item">{{task['creator']}}</td>
+      <td class="table-item">{{task['createdAt'] | date: 'dd/MM/yyyy-HH:mm' }}</td>
+      <td *ngIf="task['isActive']; else elseBlock" class="table-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACj0lEQVRIS53WS8iVdRAG8J+2EVyIhJaZ5aXFR+qiMm+5ya1lmvcLiYULaZOI13WWgkQEbqRV5RURAhVNEsUblmiiuRAUxcS8bMRFYmTyyP/9ON/xvN/tvzrwzswz88zMM6ePzt9wLMD7GI1Bxfwe/sQR7MCNujB9aj68jk2Yg764jfO4U+xfwtt4GU+wC2twszleK4CF2Ip++BFbcLYmkfH4HIvwD5ZhZ6NtM8BKbC7lx+lCFxRWn1PNNrRhBb6tPjQCJPMYHcOHeNjN4JXZAOzDe5iP3flQAYTzNO06JvUieCPIGbyCN/FXBRDeZuOdHtDSWOBrZRD+xTgEJNO1OAAZxav4AUt7SEvM3yi0htrQnBeq52FkANbhK7zbybTU4Y4swV/EB2UvYjsZJ7E6AL9gTOGtecL+76SiVJ6sB2M6DjfYJm6W8ff8uIU/MK3BYHmZpI/xqAVIOE/wIfgIh1rYBLAtAI/xEz5tMPoaa4vjjCaQYTiKVzETB2qqzJLOrQOIT/qS/iS7CmRoCZ4KZpW5r2OxHaAVRZXTBqwvIKHtIEYUjfq5i4lrpyhNHlv4bOVTgYTKCF/Gb28XwTs0OVyH8wn4rcbxy6KWke493diVKTiOVUGKTFwrjV7SiXOqvNiN4DHJFkfqR1RSsT0dR+T3XDeD1JlNxKmS8CcVQEbvcsQJMXjQS5CBheYsX8TuVqNcR2JT2omy9j0FSfD9JcGw8axXzQfnC3yDK1HCHmhTqs7cj0JifFcx0OpkBv179C/nLyfzNJp1Kb45LjmZGd0cqM+ap6zu6EcGNpbL9ALuF736u2SWY/8WoqL/IUOSrc/Sdnh1AJVRJCHZTS2Km+bl3cUl/Fr+UTz3b6IK8BT264pj8q2YxgAAAABJRU5ErkJggg==" title="is active" alt="is active">
+      </td>
+      <ng-template #elseBlock>
+        <td class="table-item">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAClElEQVRIS73Wy8uWVRQF8N9nE6GBSGgmVl4mYjbwWlkTHUhgzvKaeXfkRBE1/wEvEBGCk0hNK01xqBPFIDLFFDVQB4LipQ/LmoiDQEhjxTny+Pi+36cOPMPnrLPXPnuvs/bTo+81EgswHW9hSIH/hUv4Eftxo1uYni4bb2Ib5mAAbuM8/iz4VzERw/AAB7ARt9rxOhEsxFcYiG+xA2e7JDIVq/EJ/sEq/NDEtgnW4fNy/Rz6rZ8S1u3c5nuMxVp8WTeaBMk8oJ8wG/eeMniFDcJhvI/5OJiNSpCap2nX8d5zBG+SnMZwjMPvlSB1+xiTWmUZVRSSRnZaL+H1kljdn4yQRF2LQhApXsVeLGtESfAzOFK+t0kSfA9mYkpLqin1PIwOwSZsLqCmWiLP3VjcIK8k2UtCEUIwK4tca37T8As2hOAoxpe6tcvQiSSYZL6oS/Da2zzGMyHoxQXM6lLnNklguVWnzJshjkW2IbiP77C8D1k2SQLrL3gweaRzXwjB05ToG3xaMk92UVt/t3hUojT5bbzWoUQpTbuhge3EUoR4RUtBTzT5M2zBO/i1QVJ13kmKId6FJSWB9K/5Tj7Az1ifHsQmrpVG50BdeYAhjL+0dR5MbfyH5Q3dbJzNK47Vj6pWsS8dR+z3XAMY8nh8N6sIyQg0g7+LkyXhxZUgfnI55oQA7j6jk1b44HLrocXsept2HYvN1U7go+cgSfD4VhJMNQ417bpmsAZf4Eqxgm6TrH3BBM3DGoPE2F4BnUZm2L/Gy2X8ZWSewsNW1JzNcMnIjHNmQEWy/2feF0H20ritZTJFrn8Xv/qjHMywn4BX8C8ikrhyHu1jq9tfRQW9UbKbURw3zcu6g4s4Xv4onvibqAH+A+knnWMxQDmYAAAAAElFTkSuQmCC" title="is not active" alt="is not active">
+        </td>
+      </ng-template>
+      <td class="table-item">
+        <div class="options">
+          <button class="option-btn"><img
+            src="data:image/png;base64,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"
+            alt="delete" title="delete"></button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<ng-template #noTasks>
+  <h3>There are no tasks</h3>
+</ng-template>
