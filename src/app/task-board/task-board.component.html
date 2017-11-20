@@ -1,9 +1,9 @@
-<div *ngIf="tasks?.length > 0;else noTasks">
+<div *ngIf="tasks?.length > 0; else noTasks">
   <table class="app-table">
     <tr class="table-header">
       <td class="table-header-item">title</td>
-      <td class="table-header-item">project</td>
-      <td class="table-header-item">id</td>
+      <!--<td class="table-header-item">project</td>-->
+      <!--<td class="table-header-item">id</td>-->
       <td class="table-header-item">status</td>
       <td class="table-header-item">creator</td>
       <td class="table-header-item">created At</td>
@@ -12,17 +12,21 @@
     </tr>
     <tr class="table-items" *ngFor="let task of tasks">
       <td class="table-item">{{task['title']}}</td>
-      <td class="table-item">{{task['project']}}</td>
-      <td class="table-item">{{task['id']}}</td>
+      <!--<td class="table-item">{{task['project']}}</td>-->
+      <!--<td class="table-item">{{task['id']}}</td>-->
       <td class="table-item">{{task['status']}}</td>
       <td class="table-item">{{task['creator']}}</td>
-      <td class="table-item">{{task['createdAt'] | date: 'dd/MM/yyyy-HH:mm' }}</td>
+      <td class="table-item">{{task['createdAt'] | date: 'dd/MM/yyyy HH:mm' }}</td>
       <td *ngIf="task['isActive']; else elseBlock" class="table-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACj0lEQVRIS53WS8iVdRAG8J+2EVyIhJaZ5aXFR+qiMm+5ya1lmvcLiYULaZOI13WWgkQEbqRV5RURAhVNEsUblmiiuRAUxcS8bMRFYmTyyP/9ON/xvN/tvzrwzswz88zMM6ePzt9wLMD7GI1Bxfwe/sQR7MCNujB9aj68jk2Yg764jfO4U+xfwtt4GU+wC2twszleK4CF2Ip++BFbcLYmkfH4HIvwD5ZhZ6NtM8BKbC7lx+lCFxRWn1PNNrRhBb6tPjQCJPMYHcOHeNjN4JXZAOzDe5iP3flQAYTzNO06JvUieCPIGbyCN/FXBRDeZuOdHtDSWOBrZRD+xTgEJNO1OAAZxav4AUt7SEvM3yi0htrQnBeq52FkANbhK7zbybTU4Y4swV/EB2UvYjsZJ7E6AL9gTOGtecL+76SiVJ6sB2M6DjfYJm6W8ff8uIU/MK3BYHmZpI/xqAVIOE/wIfgIh1rYBLAtAI/xEz5tMPoaa4vjjCaQYTiKVzETB2qqzJLOrQOIT/qS/iS7CmRoCZ4KZpW5r2OxHaAVRZXTBqwvIKHtIEYUjfq5i4lrpyhNHlv4bOVTgYTKCF/Gb28XwTs0OVyH8wn4rcbxy6KWke493diVKTiOVUGKTFwrjV7SiXOqvNiN4DHJFkfqR1RSsT0dR+T3XDeD1JlNxKmS8CcVQEbvcsQJMXjQS5CBheYsX8TuVqNcR2JT2omy9j0FSfD9JcGw8axXzQfnC3yDK1HCHmhTqs7cj0JifFcx0OpkBv179C/nLyfzNJp1Kb45LjmZGd0cqM+ap6zu6EcGNpbL9ALuF736u2SWY/8WoqL/IUOSrc/Sdnh1AJVRJCHZTS2Km+bl3cUl/Fr+UTz3b6IK8BT264pj8q2YxgAAAABJRU5ErkJggg==" title="is active" alt="is active">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACj0lEQVRIS53WS8iVdRAG8J+2EVyIhJaZ5aXFR+qiMm+5ya1lmvcLiYULaZOI13WWgkQEbqRV5RURAhVNEsUblmiiuRAUxcS8bMRFYmTyyP/9ON/xvN/tvzrwzswz88zMM6ePzt9wLMD7GI1Bxfwe/sQR7MCNujB9aj68jk2Yg764jfO4U+xfwtt4GU+wC2twszleK4CF2Ip++BFbcLYmkfH4HIvwD5ZhZ6NtM8BKbC7lx+lCFxRWn1PNNrRhBb6tPjQCJPMYHcOHeNjN4JXZAOzDe5iP3flQAYTzNO06JvUieCPIGbyCN/FXBRDeZuOdHtDSWOBrZRD+xTgEJNO1OAAZxav4AUt7SEvM3yi0htrQnBeq52FkANbhK7zbybTU4Y4swV/EB2UvYjsZJ7E6AL9gTOGtecL+76SiVJ6sB2M6DjfYJm6W8ff8uIU/MK3BYHmZpI/xqAVIOE/wIfgIh1rYBLAtAI/xEz5tMPoaa4vjjCaQYTiKVzETB2qqzJLOrQOIT/qS/iS7CmRoCZ4KZpW5r2OxHaAVRZXTBqwvIKHtIEYUjfq5i4lrpyhNHlv4bOVTgYTKCF/Gb28XwTs0OVyH8wn4rcbxy6KWke493diVKTiOVUGKTFwrjV7SiXOqvNiN4DHJFkfqR1RSsT0dR+T3XDeD1JlNxKmS8CcVQEbvcsQJMXjQS5CBheYsX8TuVqNcR2JT2omy9j0FSfD9JcGw8axXzQfnC3yDK1HCHmhTqs7cj0JifFcx0OpkBv179C/nLyfzNJp1Kb45LjmZGd0cqM+ap6zu6EcGNpbL9ALuF736u2SWY/8WoqL/IUOSrc/Sdnh1AJVRJCHZTS2Km+bl3cUl/Fr+UTz3b6IK8BT264pj8q2YxgAAAABJRU5ErkJggg=="
+          title="is active" alt="is active">
       </td>
       <ng-template #elseBlock>
         <td class="table-item">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAClElEQVRIS73Wy8uWVRQF8N9nE6GBSGgmVl4mYjbwWlkTHUhgzvKaeXfkRBE1/wEvEBGCk0hNK01xqBPFIDLFFDVQB4LipQ/LmoiDQEhjxTny+Pi+36cOPMPnrLPXPnuvs/bTo+81EgswHW9hSIH/hUv4Eftxo1uYni4bb2Ib5mAAbuM8/iz4VzERw/AAB7ARt9rxOhEsxFcYiG+xA2e7JDIVq/EJ/sEq/NDEtgnW4fNy/Rz6rZ8S1u3c5nuMxVp8WTeaBMk8oJ8wG/eeMniFDcJhvI/5OJiNSpCap2nX8d5zBG+SnMZwjMPvlSB1+xiTWmUZVRSSRnZaL+H1kljdn4yQRF2LQhApXsVeLGtESfAzOFK+t0kSfA9mYkpLqin1PIwOwSZsLqCmWiLP3VjcIK8k2UtCEUIwK4tca37T8As2hOAoxpe6tcvQiSSYZL6oS/Da2zzGMyHoxQXM6lLnNklguVWnzJshjkW2IbiP77C8D1k2SQLrL3gweaRzXwjB05ToG3xaMk92UVt/t3hUojT5bbzWoUQpTbuhge3EUoR4RUtBTzT5M2zBO/i1QVJ13kmKId6FJSWB9K/5Tj7Az1ifHsQmrpVG50BdeYAhjL+0dR5MbfyH5Q3dbJzNK47Vj6pWsS8dR+z3XAMY8nh8N6sIyQg0g7+LkyXhxZUgfnI55oQA7j6jk1b44HLrocXsept2HYvN1U7go+cgSfD4VhJMNQ417bpmsAZf4Eqxgm6TrH3BBM3DGoPE2F4BnUZm2L/Gy2X8ZWSewsNW1JzNcMnIjHNmQEWy/2feF0H20ritZTJFrn8Xv/qjHMywn4BX8C8ikrhyHu1jq9tfRQW9UbKbURw3zcu6g4s4Xv4onvibqAH+A+knnWMxQDmYAAAAAElFTkSuQmCC" title="is not active" alt="is not active">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAClElEQVRIS73Wy8uWVRQF8N9nE6GBSGgmVl4mYjbwWlkTHUhgzvKaeXfkRBE1/wEvEBGCk0hNK01xqBPFIDLFFDVQB4LipQ/LmoiDQEhjxTny+Pi+36cOPMPnrLPXPnuvs/bTo+81EgswHW9hSIH/hUv4Eftxo1uYni4bb2Ib5mAAbuM8/iz4VzERw/AAB7ARt9rxOhEsxFcYiG+xA2e7JDIVq/EJ/sEq/NDEtgnW4fNy/Rz6rZ8S1u3c5nuMxVp8WTeaBMk8oJ8wG/eeMniFDcJhvI/5OJiNSpCap2nX8d5zBG+SnMZwjMPvlSB1+xiTWmUZVRSSRnZaL+H1kljdn4yQRF2LQhApXsVeLGtESfAzOFK+t0kSfA9mYkpLqin1PIwOwSZsLqCmWiLP3VjcIK8k2UtCEUIwK4tca37T8As2hOAoxpe6tcvQiSSYZL6oS/Da2zzGMyHoxQXM6lLnNklguVWnzJshjkW2IbiP77C8D1k2SQLrL3gweaRzXwjB05ToG3xaMk92UVt/t3hUojT5bbzWoUQpTbuhge3EUoR4RUtBTzT5M2zBO/i1QVJ13kmKId6FJSWB9K/5Tj7Az1ifHsQmrpVG50BdeYAhjL+0dR5MbfyH5Q3dbJzNK47Vj6pWsS8dR+z3XAMY8nh8N6sIyQg0g7+LkyXhxZUgfnI55oQA7j6jk1b44HLrocXsept2HYvN1U7go+cgSfD4VhJMNQ417bpmsAZf4Eqxgm6TrH3BBM3DGoPE2F4BnUZm2L/Gy2X8ZWSewsNW1JzNcMnIjHNmQEWy/2feF0H20ritZTJFrn8Xv/qjHMywn4BX8C8ikrhyHu1jq9tfRQW9UbKbURw3zcu6g4s4Xv4onvibqAH+A+knnWMxQDmYAAAAAElFTkSuQmCC"
+            title="is not active" alt="is not active">
         </td>
       </ng-template>
       <td class="table-item">
