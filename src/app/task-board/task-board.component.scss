@@ -50,7 +50,6 @@ $page-color: #fe6c6c;
   text-transform: uppercase;
 
   @media (max-width: 768px) {
-    width: 100%;
     padding: 5px;
     border: none;
   }
@@ -70,7 +69,6 @@ $page-color: #fe6c6c;
   text-align: center;
 
   @media (max-width: 768px) {
-    width: 100%;
     padding: 5px;
     border: none;
   }
@@ -87,6 +85,7 @@ $page-color: #fe6c6c;
   & img {
     height: 25px;
     opacity: 0.5;
+
     &:hover {
       opacity: 1;
     }

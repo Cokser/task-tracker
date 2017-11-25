@@ -10,6 +10,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AppComponent} from './app.component';
 import {ProjectsBoardModule} from "./projects-board/projects-board.module";
 import {HeaderModule} from "./header/header.module";
+import {AppRoutingModule} from "./app-routing.module";
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {HeaderModule} from "./header/header.module";
   imports: [
     BrowserModule,
     HeaderModule,
+    AppRoutingModule,
     ProjectsBoardModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features

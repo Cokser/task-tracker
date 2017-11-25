@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import { Task } from "./Task"
+import {Injectable} from '@angular/core';
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
+import {Observable} from 'rxjs/Observable';
+import {Task} from "./Task"
 
 @Injectable()
 export class TasksService {
@@ -12,7 +12,7 @@ export class TasksService {
 
   constructor(public afs: AngularFirestore) {
     this.tasks = this.afs.collection('tasks').valueChanges();
-    this.tasksCollection = this.afs.collection('tasks', ref => ref.orderBy('taskName','asc'));
+    this.tasksCollection = this.afs.collection('tasks', ref => ref.orderBy('taskName', 'asc'));
 
     // this.tasks = this.tasksCollection.snapshotChanges().map(changes => {
     //   return changes.map(a => {
@@ -23,22 +23,21 @@ export class TasksService {
     // });
   }
 
-  getTasks(){
+  getTasks() {
     return this.tasks;
   }
 
-  addTask(task: Task){
+  addTask(task: Task) {
     this.tasksCollection.add(task);
   }
 
-  deleteTask(task: Task){
+  deleteTask(task: Task) {
     this.taskDoc = this.afs.doc(`tasks/${task.id}`);
     this.taskDoc.delete();
   }
 
-  updateTask(task: Task){
+  updateTask(task: Task) {
     this.taskDoc = this.afs.doc(`tasks/${task.id}`);
     this.taskDoc.update(task);
   }
-
 }
