@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+button {
+  display: block;
+}
+p {
+  color: #000;
+  padding: 0;
+  margin: 0;
+}
+.project-container {
+  margin: 0 auto;
+  border: solid 5px bisque;
+  width: 700px;
+  padding: 20px;
+  background: bisque;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 5px;
+    border: none;
+  }
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 15px solid #22aaaa;
+  margin: 5px;
+  box-shadow: 0 0 20px -5px #000000;
+}
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 70px;
+  background: #FE6C6C;
+}
+
+.project-icon {
+  height: 70px;
+  width: 70px;
+  background-color: #ffffff;
+}
+
+.delete-btn {
+  display: flex;
+  padding: 5px;
+  padding-right: 10px;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  img {
+    height: 30px;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.project-title {
+  margin: 0 auto;
+  color: #fff;
+  font-family: "Liberation Sans";
+  text-transform: uppercase;
+  font-weight: bold;
+  justify-content: center;
+}
+.project-info {
+  background: #ffffff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.project-info-block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.project-info-key, .project-info-value {
+  font-family: "Liberation Sans";
+  color: #000;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5px;
+  width: 50%;
+}
+.project-info-key {
+  font-family: "Liberation Sans";
+  text-transform: uppercase;
+}
+
+.app-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 15px;
+  background: #FE6C6C;
+  color: #fff;
+  font-family: "Liberation Sans";
+  border: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+}

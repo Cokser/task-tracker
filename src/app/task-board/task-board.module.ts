@@ -3,11 +3,14 @@ import {CommonModule} from '@angular/common';
 import {TaskBoardComponent} from "./task-board.component";
 import {TasksService} from "./tasks.service";
 import {TaskDetailModule} from "./task-detail/task-detail.module";
+import {TaskBoardRoutingModule} from "./task-board-routing.module";
+
 
 @NgModule({
   imports: [
     CommonModule,
-    TaskDetailModule
+    TaskDetailModule,
+    TaskBoardRoutingModule
   ],
   exports: [TaskBoardComponent],
   declarations: [TaskBoardComponent],
