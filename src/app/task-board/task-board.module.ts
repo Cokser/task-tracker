@@ -10,7 +10,7 @@ import {TaskBoardRoutingModule} from "./task-board-routing.module";
   imports: [
     CommonModule,
     TaskDetailModule,
-    TaskBoardRoutingModule
+    // TaskBoardRoutingModule
   ],
   exports: [TaskBoardComponent],
   declarations: [TaskBoardComponent],

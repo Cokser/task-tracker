@@ -92,6 +92,11 @@ $page-color: #fe6c6c;
   }
 }
 
+tr.selected {
+  font-weight: bold;
+  background-color: lightcoral;
+}
+
 .app-btn {
   display: block;
   margin: 0 auto;

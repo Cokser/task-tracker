@@ -14,17 +14,18 @@ export class ProjectsService {
     this.projects = this.afs.collection('projects').valueChanges();
     this.projectsCollection = this.afs.collection('projects', ref => ref.orderBy('projectName', 'asc'));
 
-    // this.projects = this.projectsCollection.snapshotChanges().map(changes => {
-    //   return changes.map(a => {
-    //     const data = a.payload.doc.data() as Project;
-    //     data.id = a.payload.doc.id;
-    //     return data;
-    //   });
-    // });
   }
 
   getProjects() {
+    this.projects = this.afs.collection('projects').valueChanges();
+    this.projectsCollection = this.afs.collection('projects', ref => ref.orderBy('projectName', 'asc'));
     return this.projects;
+  }
+
+  getProject(shortName:string): Observable<Project> {
+    return this.getProjects()
+      .map(projects => projects
+        .filter(project => project.shortName === shortName)[0])
   }
 
   addProject(project: Project) {

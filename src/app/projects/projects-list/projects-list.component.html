@@ -1,6 +1,6 @@
-<div *ngIf="projects" class="table-container">
+<div class="table-container">
   <button (click)="createModal = !createModal" class="app-btn">create new project</button>
-  <table class="app-table">
+  <table *ngIf="projects" class="app-table">
     <tr class="table-header">
       <th class="table-header-item">project name</th>
       <th class="table-header-item">creator</th>
@@ -8,7 +8,9 @@
       <th class="table-header-item">active</th>
       <th class="table-header-item">options</th>
     </tr>
-    <tr class="table-items" *ngFor="let project of projects">
+    <tr class="table-items" *ngFor="let project of projects"
+        (click)="onSelect(project)"
+        [class.selected]="isSelected(project)">
       <td class="table-item">{{project['projectName']}}</td>
       <td class="table-item">{{project['creator']}}</td>
       <td class="table-item">{{project['status']}}</td>

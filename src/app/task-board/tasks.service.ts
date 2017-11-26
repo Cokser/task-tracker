@@ -11,8 +11,6 @@ export class TasksService {
   taskDoc: AngularFirestoreDocument<Task>;
 
   constructor(public afs: AngularFirestore) {
-    this.tasks = this.afs.collection('tasks').valueChanges();
-    this.tasksCollection = this.afs.collection('tasks', ref => ref.orderBy('taskName', 'asc'));
 
     // this.tasks = this.tasksCollection.snapshotChanges().map(changes => {
     //   return changes.map(a => {
@@ -24,6 +22,8 @@ export class TasksService {
   }
 
   getTasks() {
+    this.tasks = this.afs.collection('tasks').valueChanges();
+    this.tasksCollection = this.afs.collection('tasks', ref => ref.orderBy('taskName', 'asc'));
     return this.tasks;
   }
 

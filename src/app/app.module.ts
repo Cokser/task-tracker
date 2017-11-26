@@ -8,7 +8,7 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 
 import {AppComponent} from './app.component';
-import {ProjectsBoardModule} from "./projects-board/projects-board.module";
+import {ProjectsBoardModule} from "./projects/projects.module";
 import {HeaderModule} from "./header/header.module";
 import {AppRoutingModule} from "./app-routing.module";
 
