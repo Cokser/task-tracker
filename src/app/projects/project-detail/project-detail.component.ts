@@ -23,15 +23,15 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription1 = this.activatedRoute.params.subscribe((params: Params) => {
       this.projectsService.getProject(params["id"])
-          .subscribe(project => {
-            this.currentProject = project;
-          });
+        .subscribe(project => {
+          this.currentProject = project;
+        });
     });
   }
 
   goToProjectsList() {
     let pId = this.currentProject ? this.currentProject.shortName : null;
-    this.router.navigate(["../"], { relativeTo: this.activatedRoute });
+    this.router.navigate(["../"], {relativeTo: this.activatedRoute});
   }
 
   public ngOnDestroy() {
